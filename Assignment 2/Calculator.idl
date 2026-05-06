@@ -1,0 +1,44 @@
+// ============================================================
+// FILE: Calculator.idl
+// PURPOSE: IDL = Interface Definition Language
+//          This is like a MENU / CONTRACT that defines what
+//          operations are available — written in a neutral
+//          language so ANY programming language can use it.
+//          CORBA uses this file to auto-generate Java code.
+// ============================================================
+
+// "module" is like a Java package — groups related things together
+// CalculatorApp is the name of our module (package)
+module CalculatorApp {
+
+    // CUSTOM EXCEPTION: Raised when someone tries to divide by zero
+    // "exception" in IDL = like a Java Exception class
+    // "{}" means it has no extra data, just the error signal itself
+    exception DivisionByZero {};
+
+    // INTERFACE: Defines the 4 operations the Calculator can do
+    // "interface" in IDL = like a Java interface
+    // Anyone who wants to USE the calculator calls these methods
+    interface Calculator {
+
+        // METHOD: Add two numbers, return result
+        // "in" means the value goes INTO the method (input parameter)
+        // "float" means decimal number
+        float add(in float a, in float b);
+
+        // METHOD: Subtract b from a, return result
+        float subtract(in float a, in float b);
+
+        // METHOD: Multiply two numbers, return result
+        float multiply(in float a, in float b);
+
+        // METHOD: Divide a by b, return result
+        // "raises(DivisionByZero)" means this method CAN throw
+        // the DivisionByZero exception if b is 0
+        float divide(in float a, in float b) raises(DivisionByZero);
+    };
+
+};
+// After writing this file, run:
+// idlj -fall Calculator.idl
+// This auto-generates Java files in a folder called "CalculatorApp/"
