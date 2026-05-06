@@ -147,3 +147,19 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+
+
+steps to run
+STEP 1 — Install MPI
+Download and install from:
+https://www.microsoft.com/en-us/download/details.aspx?id=57467
+Download msmpisetup.exe → install it
+
+STEP 2 — Open CMD and go to folder
+cd "C:\Users\Srushti Nitin Pagar\Desktop\PPA Home\DS"
+
+STEP 3 — Compile
+mpicc -o sum_mpi sum_mpi.c
+
+STEP 4 — Run
+mpiexec -n 4 sum_mpi.exe
