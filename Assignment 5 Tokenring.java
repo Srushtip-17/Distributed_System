@@ -12,6 +12,7 @@ import java.util.Scanner;  // Import Scanner class to take input from user
 //    node by node around the ring until it reaches the receiver
 // ─────────────────────────────────────────────────────────
 
+
 public class Tokenring {
 
     public static void main(String args[]) {
